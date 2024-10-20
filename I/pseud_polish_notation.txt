@@ -1,0 +1,37 @@
+Funkcja convert_to_rpn(wyrażenie):
+    output <- pusta lista
+    operators_stack <- pusty stos
+
+    Dla każdego elementu w wyrażeniu:
+        Jeśli element to liczba:
+            Dodaj element do output
+        Jeśli element to '(':
+            Wstaw element na operators_stack
+        Jeśli element to ')':
+            Dopóki wierzchołek operators_stack nie jest '(':
+                Zdejmij element ze stosu i dodaj do output
+            Usuń '(' ze stosu
+        Jeśli element to operator:
+            Dopóki operators_stack nie jest pusty oraz priorytet wierzchołka operators_stack >= priorytet elementu:
+                Zdejmij element ze stosu i dodaj do output
+            Wstaw element na stos operators_stack
+
+    Dopóki operators_stack nie jest pusty:
+        Zdejmij element ze stosu i dodaj do output
+
+    Zwróć output połączone w jeden ciąg znaków
+
+
+Funkcja convert_from_rpn(wyrazenie_rpn):
+    stack <- pusty stos
+
+    Dla każdego elementu w wyrazeniu_rpn:
+        Jeśli element to liczba:
+            Wstaw element na stos stack
+        Jeśli element to operator:
+            num1 <- zdejmij element ze stosu
+            num2 <- zdejmij element ze stosu
+            wynik <- "(num2 operator num1)"
+            Wstaw wynik na stos stack
+
+    Zwróć wierzchołek stosu
