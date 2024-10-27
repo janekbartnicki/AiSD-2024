@@ -1,5 +1,5 @@
 Wczytujemy liczby z pliku do numbers_array
-max_number <- maksymalna wartość float (domyśl. nieskończność)
+max_number <- maksymalna wartość float (domyśl. "- nieskończność")
 
 Dla każdej liczby z tablicy numbers_array:
     Jeżeli liczba jest większa od max_number:
